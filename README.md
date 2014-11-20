@@ -36,11 +36,11 @@ Executing the command on the line `MACRO(25)` will result in following output
 2. Clone this repository and put it in your Sublime's packages directory.
 3. Edit the settings to your needs.
 4. Default key bindings are: "ctrl-alt-x" to put result into new file, "ctrl-alt-z" to put result in quick panel.
-5. To modify those bindings, simply edit "DDefault (OSX).sublime-keymap" or its linux counterpart.
+5. To modify those bindings, simply edit "Default (OSX).sublime-keymap" or its linux counterpart.
 
 ##Settings
 
  - include_dirs: List of directories where relevant header files are located
  - compiler: Use gcc or clang to get result
- - other_flags: You can define compile time macros here with "-D DEFINE_SOEMTHING"
+ - other_flags: You can define compile time macros here with "-D DEFINE_SOMETHING"
  
