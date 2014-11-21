@@ -6,7 +6,6 @@ import sublime, sublime_plugin, os, ntpath, subprocess, codecs, re
 class ExpandCppMacroCommand(sublime_plugin.TextCommand):
 
 	def __init__(self, view):
-		self.load_settings()
 		self.view = view
 		self.regex = re.compile("\s*#define\s+\w+([\s\S]+)")
 
@@ -27,6 +26,7 @@ class ExpandCppMacroCommand(sublime_plugin.TextCommand):
 			self.include_dirs[i] = re.sub("(\$project_base_path)", project_path, self.include_dirs[i])
 
 	def run(self, edit, output_dst):
+		self.load_settings()
 		view = self.view
 		# Find exact Line:Column position of cursor for clang
 		pos = view.sel()[0].begin()
