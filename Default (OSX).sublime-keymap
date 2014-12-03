@@ -1,8 +1,5 @@
 [
-    { 
-        "keys": ["ctrl+alt+x"], "command": "expand_cpp_macro", "args": {"output_dst":"panel"},
-    },
     {
-        "keys": ["ctrl+alt+z"], "command": "expand_cpp_macro", "args": {"output_dst":"file"},
+        "keys": ["ctrl+alt+z"], "command": "expand_cpp_macro",
     }
 ]

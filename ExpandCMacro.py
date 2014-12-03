@@ -25,7 +25,7 @@ class ExpandCppMacroCommand(sublime_plugin.TextCommand):
 		for i in range(0, len(self.include_dirs)):
 			self.include_dirs[i] = re.sub("(\$project_base_path)", project_path, self.include_dirs[i])
 
-	def run(self, edit, output_dst):
+	def run(self, edit):
 		self.load_settings()
 		view = self.view
 		# Find exact Line:Column position of cursor for clang
@@ -64,14 +64,17 @@ class ExpandCppMacroCommand(sublime_plugin.TextCommand):
 		# Retrieve result and show it to user
 		result = output_lines[-2]
 
-		if output_dst == "file":
-			results = view.window().new_file()
-			results.set_scratch(True)
-			results.set_name("Macro")
-			point = results.insert(edit,0,result)
-			results.set_syntax_file(view.settings().get('syntax'))
-		elif output_dst == "panel":
-			view.window().show_quick_panel([result], None)
+		# Create output panel
+		self.output_view = view.window().get_output_panel("expand")
+		self.output_view.set_read_only(False)
+
+		self.output_view.set_syntax_file(view.settings().get('syntax'))
+		region = sublime.Region(0, self.output_view.size())
+		self.output_view.erase(edit, region)
+		self.output_view.insert(edit, 0, result)
+
+		self.output_view.set_read_only(True)
+		view.window().run_command("show_panel", {"panel": "output.expand"})
 
 
 
