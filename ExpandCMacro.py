@@ -39,7 +39,6 @@ class ExpandCppMacroCommand(sublime_plugin.TextCommand):
 		tmp_file_header = "#include \""+ntpath.basename(self.view.file_name())+"\"\n"
 		line_to_expand = file_lines[line_pos]
 		regex_result = re.findall(self.regex, line_to_expand)
-		print(regex_result)
 		if len(regex_result) > 0:
 			line_to_expand = regex_result[0]
 
