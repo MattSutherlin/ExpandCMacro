@@ -65,15 +65,12 @@ class ExpandCppMacroCommand(sublime_plugin.TextCommand):
 		result = output_lines[-2]
 
 		# Create output panel
-		self.output_view = view.window().get_output_panel("expand")
-		self.output_view.set_read_only(False)
-
-		self.output_view.set_syntax_file(view.settings().get('syntax'))
-		region = sublime.Region(0, self.output_view.size())
-		self.output_view.erase(edit, region)
-		self.output_view.insert(edit, 0, result)
-
-		self.output_view.set_read_only(True)
+		output_view = view.window().get_output_panel("expand")
+		output_view.set_read_only(False)
+		output_view.set_syntax_file(view.settings().get('syntax'))
+		region = sublime.Region(0, output_view.size())
+		output_view.erase(edit, region)
+		output_view.insert(edit, 0, result)
 		view.window().run_command("show_panel", {"panel": "output.expand"})
 
 
