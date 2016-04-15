@@ -5,7 +5,7 @@
 					  "$project_base_path/src/",
 					  ],
 	/* Temporary file where current file will be written to */
-	"tmp_file_path" : "/tmp/macro_expand_tmp.c",
+	// "tmp_file_path" : "/tmp/macro_expand_tmp.c",
 	/* clang or gcc should work */
 	"compiler" : "clang",
 	/* You can define compile time macros here */

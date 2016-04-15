@@ -1,7 +1,8 @@
 #
 #
 
-import sublime, sublime_plugin, os, ntpath, subprocess, codecs, re
+import sublime, sublime_plugin, os, ntpath, subprocess, codecs, re, tempfile
+import os.path as path
 
 class ExpandCppMacroCommand(sublime_plugin.TextCommand):
 
@@ -17,6 +18,8 @@ class ExpandCppMacroCommand(sublime_plugin.TextCommand):
 			project_path = (sublime.active_window().project_data().get("folders")[0].get("path"))
 
 		self.tmp_file_path    = settings.get("tmp_file_path")
+		if self.tmp_file_path is None:
+			self.tmp_file_path = path.join(tempfile.gettempdir(), "macro_expand_tmp.c")
 		self.default_encoding = settings.get("default_encoding")
 		self.include_dirs     = settings.get("include_dirs")
 		self.compiler         = settings.get("compiler")
