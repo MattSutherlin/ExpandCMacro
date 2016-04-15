@@ -35,7 +35,7 @@ Executing the command on the line `MACRO(25)` will result in following output
 ##Installation
 
 1. Install "clang" or "gcc".
-2. Clone this repository and put it in your Sublime's packages directory.
+2. Clone this repository and put it in your Sublime's packages directory (only if installing manually from GitHub).
 3. Edit the settings to your needs.
 4. Default key bindings are:  "ctrl-alt-z" to put result output panel.
 5. To modify those bindings, simply edit "Default (OSX).sublime-keymap" or its linux counterpart.
