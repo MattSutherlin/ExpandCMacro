@@ -4,7 +4,7 @@ Sublime Text 3 plugin that expands C/C++ macros. Currently only works on Linux/O
 
 ##Example
 
-```
+```C
 #include <stdio.h>
 
 
@@ -27,7 +27,9 @@ int main()
 
 Executing the command on the line `MACRO(25)` will result in following output
 
-`{ if (1) printf("this is a test %d\n", 25); else printf("---- %s -----\n", "this is another test"); }`
+```C
+{ if (1) printf("this is a test %d\n", 25); else printf("---- %s -----\n", "this is another test"); }`
+```
 
 
 ##Installation
