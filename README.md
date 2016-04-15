@@ -1,6 +1,6 @@
 #ExpandCMacro
 
-Sublime Text 3 plugin that expands C/C++ macros.
+Sublime Text 3 plugin that expands C/C++ macros. Currently only works on Linux/OS X
 
 ##Example
 
